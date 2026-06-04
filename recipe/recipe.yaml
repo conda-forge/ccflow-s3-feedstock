@@ -1,7 +1,7 @@
 context:
   name: ccflow-s3
-  version: "0.1.0"
-  python_min: '3.10'
+  version: "0.1.1"
+  python_min: "3.11"
 
 package:
   name: ${{ name|lower }}
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/c/ccflow_s3/ccflow_s3-${{ version }}.tar.gz
-  sha256: 2946e664c913d84173ebad7b6b5c5f0cf38ba73e995e893a0efd1d92f6cfbd29
+  sha256: 1225b89794f750c8db6a149732b5cb2c66ff80ea7ac5c5997b5a68f0917fd693
 
 build:
   number: 0
@@ -26,6 +26,7 @@ requirements:
     - boto3
     - botocore
     - ccflow >=0.6.10
+    - ccflow-etl >=0.1.1
 
 tests:
   - python:
