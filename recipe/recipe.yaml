@@ -1,7 +1,6 @@
 context:
   name: ccflow-s3
   version: "0.1.2"
-  python_min: "3.11"
 
 package:
   name: ${{ name|lower }}
@@ -12,7 +11,7 @@ source:
   sha256: 627bac55556dada171f8db34d1b74fccc01bd49828477a0de210b21f1ac89460
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: python -m pip install . -vv --no-deps --no-build-isolation
 
@@ -26,14 +25,16 @@ requirements:
     - boto3
     - botocore
     - ccflow >=0.6.10
-    - ccflow-etl >=0.1.1
+    - ccflow-etl >=0.2.0
 
 tests:
   - python:
       imports:
         - ccflow_s3
       pip_check: true
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
 
 about:
   license: Apache-2.0
